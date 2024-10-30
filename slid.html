@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html l>
+
+<head>
+
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slider {
+        max-width: 600px;
+        margin: 40px auto;
+        overflow: hidden;
+        text-align: center;
+    }
+
+
+    .slides {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .slide img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .slide p {
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #333;
+    }
+
+    .buttons {
+        margin-top: 20px;
+    }
+
+    .prev,
+    .next {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+<div class="container">
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="https://th.bing.com/th/id/OIP.mmgqLAo7CqmHU2-V1_pBfwHaEm?rs=1&pid=ImgDetMain" alt="Software Engineer 1">
+                <p>Main ek passionate software engineer hoon jo innovative solutions create karta hoon. Meri expertise
+                    software development, problem-solving aur team collaboration mein hai.
+                </p>
+            </div>
+            <div class="slide">
+                <img src="https://www.howtobecomejob.com/wp-content/uploads/2021/03/how-to-become-a-web-developer.jpeg" alt="Software Engineer 2">
+                <p>Mere kaam mein technology, creativity aur logic ka blend hai. Main scalable, efficient aur
+                    user-friendly applications banaane ke liye dedicated hoon.
+                </p>
+            </div>
+            <div class="slide">
+                <img src="C:\Users\sajja\Downloads\portrait-male-programmer-office_fmxi3y.jpg" alt="Software Engineer 3">
+                <p>Mere goals mein shamil hain: cutting-edge technology adopt karna, coding skills ko enhance karna aur
+                    successful projects deliver karna. Main apne kaam se software industry ko contribute
+                    karna chahta hoon.</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="prev" onclick="prevSlide()"><</button>
+            <button class="next" onclick="nextSlide()">></button>
+        </div>
+    </div>
+</div>
+
+<body>
+    <script>
+        let currentIndex = 0;
+
+        function prevSlide() {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            slides.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+        }
+
+        function nextSlide() {
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slide').length;
+            currentIndex = (currentIndex + 1) % totalSlides;
+            slides.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+        }
+    </script>
+</body>
+
+</html>
